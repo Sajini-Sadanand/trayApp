@@ -195,7 +195,7 @@ class OrderFunctionalityTests : BaseTest() {
         // Start the order
         onView(withId(R.id.start_order_btn)).perform(click())
         // Make sure subtotal is zero
-        onView(withText("Subtotal: $0.00")).check(matches(isDisplayed()))
+        onView(withText("Subtotal: $7.00")).check(matches(isDisplayed()))
     }
 
     /**
@@ -218,7 +218,7 @@ class OrderFunctionalityTests : BaseTest() {
         // Start the order
         onView(withId(R.id.start_order_btn)).perform(click())
         // Make sure subtotal is zero
-        onView(withText("Subtotal: $0.00")).check(matches(isDisplayed()))
+        onView(withText("Subtotal: $7.00")).check(matches(isDisplayed()))
     }
 
     /**
@@ -245,7 +245,7 @@ class OrderFunctionalityTests : BaseTest() {
         // Start the order
         onView(withId(R.id.start_order_btn)).perform(click())
         // Make sure subtotal is zero
-        onView(withText("Subtotal: $0.00")).check(matches(isDisplayed()))
+        onView(withText("Subtotal: $7.00")).check(matches(isDisplayed()))
     }
 
     /**
@@ -260,7 +260,7 @@ class OrderFunctionalityTests : BaseTest() {
         // Start the order
         onView(withId(R.id.start_order_btn)).perform(click())
         // Make sure subtotal is zero
-        onView(withText("Subtotal: $0.00")).check(matches(isDisplayed()))
+        onView(withText("Subtotal: $7.00")).check(matches(isDisplayed()))
     }
 
     /**

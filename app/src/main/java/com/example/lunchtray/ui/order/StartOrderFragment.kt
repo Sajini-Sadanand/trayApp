@@ -20,7 +20,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
+import com.example.lunchtray.R
 import com.example.lunchtray.databinding.FragmentStartOrderBinding
+import com.example.lunchtray.model.OrderViewModel
 
 /**
  * [StartOrderFragment] allows people to click the start button to start an order.
@@ -36,18 +40,25 @@ class StartOrderFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
+    private val sharedViewModel:OrderViewModel by activityViewModels()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentStartOrderBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-        // Navigate to entree menu
-        binding.startOrderBtn.setOnClickListener {
-            // TODO: navigate to the EntreeMenuFragment
-        }
-        return root
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.startOrderFragment = this
+        binding.lifecycleOwner = viewLifecycleOwner
+    }
+
+    fun moveToNextScreen(){
+        sharedViewModel.setDefaultEntreeChecks()
+        findNavController().navigate(R.id.action_startOrderFragment_to_entreeMenuFragment)
     }
 
     /**
